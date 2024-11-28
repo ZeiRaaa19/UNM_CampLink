@@ -1,18 +1,49 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+// Rute untuk menampilkan halaman login
+Route::get('/index', function () {
+    return view('index'); // Pastikan 'index' sesuai dengan lokasi file index.blade.php Anda
+})->name('index');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Rute untuk menampilkan halaman login
+Route::get('/login', function () {
+    return view('auth.login'); // Pastikan 'auth.login' sesuai dengan lokasi file login.blade.php Anda
+})->name('login');
+
+// Rute untuk menampilkan halaman registrasi
+Route::get('/register', function () {
+    return view('auth.register'); // Pastikan Anda memiliki view ini
+})->name('register');
+
+// Rute untuk menangani pengiriman formulir registrasi
+Route::post('/register', function (Request $request) {
+    // Validasi input
+    $validator = Validator::make($request->all(), [
+        'name' => 'required|string|max:255',
+        'email' => 'required|string|email|max:255|unique:users',
+        'password' => 'required|string|min:8|confirmed',
+    ]);
+
+    if ($validator->fails()) {
+        return redirect()->back()->withErrors($validator)->withInput();
+    }
+
+    // Buat pengguna baru
+    $user = User::create([
+        'name' => $request->name,
+        'email' => $request->email,
+        'password' => bcrypt($request->password), // Enkripsi password
+    ]);
+
+    // Login pengguna setelah registrasi
+    Auth::login($user);
+
+    // Redirect ke halaman yang diinginkan setelah registrasi
+    return redirect()->route('home'); // Ganti 'home' dengan rute yang sesuai
+})->name('register.store'); // Menambahkan nama rute
