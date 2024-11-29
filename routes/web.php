@@ -21,6 +21,17 @@ Route::get('/register', function () {
     return view('auth.register'); // Pastikan Anda memiliki view ini
 })->name('register');
 
+//
+Route::get('/camp1', function () {
+    return view('user.camp1'); // Pastikan Anda memiliki view ini
+})->name('camp1');
+
+//
+Route::get('/invoice', function () {
+    return view('user.invoice'); // Pastikan Anda memiliki view ini
+})->name('invoice');
+
+
 // Rute untuk menangani pengiriman formulir registrasi
 Route::post('/register', function (Request $request) {
     // Validasi input
