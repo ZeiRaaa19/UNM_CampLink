@@ -6,6 +6,45 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
+//ADMIN
+Route::get('/approvalmitra', function () {
+    return view('admin.approvalmitra'); 
+})->name('approvalmitra');
+
+Route::get('/listtransaksi', function () {
+    return view('admin.listtransaksi'); 
+})->name('listtransaksi');
+
+Route::get('/report', function () {
+    return view('admin.report'); 
+})->name('report');
+
+Route::get('/settingpayment', function () {
+    return view('admin.settingpayment'); 
+})->name('settingpayment');
+
+//PARTNER
+Route::get('/databooking', function () {
+    return view('partner.databooking.databooking'); 
+})->name('databooking');
+
+Route::get('/edittenda', function () {
+    return view('partner.olahtenda.edittenda'); 
+})->name('edittenda');
+
+Route::get('/formtenda', function () {
+    return view('partner.olahtenda.formtenda'); 
+})->name('formtenda');
+
+Route::get('/tambahtenda', function () {
+    return view('partner.olahtenda.tambahtenda'); 
+})->name('tambahtenda');
+
+Route::get('/dashboard', function () {
+    return view('partner.dashboard'); 
+})->name('dashboard');
+
+
 // Rute untuk menampilkan halaman login
 Route::get('/index', function () {
     return view('index'); // Pastikan 'index' sesuai dengan lokasi file index.blade.php Anda
@@ -20,6 +59,10 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('auth.register'); // Pastikan Anda memiliki view ini
 })->name('register');
+
+Route::get('partner', function () {
+    return view('auth.partner'); // Pastikan Anda memiliki view ini
+})->name('partner');
 
 //
 Route::get('/camp1', function () {

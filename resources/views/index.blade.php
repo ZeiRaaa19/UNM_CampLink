@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Camplink</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-    <style>
+@extends('layouts.main')
+@section('content')
+<style>
         body {
             font-family: 'Roboto', sans-serif;
         }
@@ -22,39 +14,29 @@
             width: 100%;
         }
     </style>
-</head>
 
-<body class="bg-light">
-    <!-- Header -->
-    <header class="bg-dark text-white p-4 d-flex justify-content-between align-items-center">
-        <div class="h2 font-weight-bold">CAMPLINK</div>
-        <div>
-            <button class="btn btn-warning mr-2">Daftar</button>
-            <button class="btn btn-warning">Masuk</button>
-        </div>
-    </header>
     <!-- Search Section -->
     <section class="bg-light p-4">
         <div class="container d-flex justify-content-center flex-wrap">
-            <div class="input-group mb-3 mx-2">
+            <div class="input-group mb-3 mx-2" style="min-width: 250px;">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
                 </div>
                 <input class="form-control" placeholder="Location" type="text" />
             </div>
-            <div class="input-group mb-3 mx-2">
+            <div class="input-group mb-3 mx-2" style="min-width: 250px;">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
                 </div>
                 <input class="form-control" placeholder="Check-in" type="text" />
             </div>
-            <div class="input-group mb-3 mx-2">
+            <div class="input-group mb-3 mx-2" style="min-width: 250px;">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
                 </div>
                 <input class="form-control" placeholder="Check-out" type="text" />
             </div>
-            <button class="btn btn-warning mx-1">Search</button>
+            <button class="btn btn-warning mx-2" style="min-width: 100px;">Search</button>
         </div>
     </section>
 
@@ -137,26 +119,5 @@
             </div>
         </section>
     </main>
+    @endsection
 
-
-    <!-- Footer -->
-    <footer class="bg-dark text-white p-4 mt-4">
-        <div class="d-flex justify-content-between align-items-center">
-            <div>
-                <div class="h2 font-weight-bold">CAMPLINK</div>
-                <p>Platform digital pertama dalam reservasi camping ground di Indonesia.</p>
-            </div>
-            <div class="d-flex">
-                <a class="text-white mr-4" href="#">LAYANAN</a>
-                <a class="text-white mr-4" href="#">INFORMASI</a>
-                <a class="text-white" href="#">PARTNER</a>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-
-</html>

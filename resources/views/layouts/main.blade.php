@@ -9,6 +9,9 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif !important;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;        
         }
 
         .navbar {
@@ -96,8 +99,10 @@
 
         .footer {
             background-color: #333;
-            color: white;
-            padding: 10px 0;
+            color: #D4AF37;
+            padding: 1rem;
+            text-align: center;
+            margin-top: auto; /* Memastikan footer tetap di bawah */
         }
 
         .footer a {

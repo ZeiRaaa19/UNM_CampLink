@@ -1,32 +1,6 @@
-<html>
-
-<head>
-    <title>Order Detail - CAMPLINK</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-        }
-
-        .navbar {
-            background-color: #333;
-            padding: 10px;
-        }
-
-        .navbar-brand {
-            color: #fff;
-            font-weight: bold;
-        }
-
-        .navbar .btn {
-            background-color: #f8f9fa;
-            color: #333;
-            border: none;
-            margin-left: 10px;
-        }
+@extends('layouts.main')
+@section('content')
+<style>
 
         .content {
             padding: 20px;
@@ -56,30 +30,8 @@
             padding: 5px 0;
         }
 
-        .footer {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
-
-        .footer a {
-            color: #fff;
-            text-decoration: none;
-        }
     </style>
-</head>
 
-<body>
-    <nav class="navbar">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">CAMPLINK</a>
-            <div class="d-flex">
-                <button class="btn btn-outline-light me-2">Profil</button>
-                <button class="btn btn-outline-light">Keluar</button>
-            </div>
-        </div>
-    </nav>
     <div class="content container">
         <div class="row">
             <div class="col-12">
@@ -172,10 +124,4 @@
             </div>
         </div>
     </div>
-    <div class="footer">
-        <p>CAMPLINK - Platform sewa peralatan dalam mencari camping ground</p>
-        <a href="#">KEMBALI</a>
-    </div>
-</body>
-
-</html>
+    @endsection
