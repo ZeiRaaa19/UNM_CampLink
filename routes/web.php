@@ -6,50 +6,13 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
-//ADMIN
-Route::get('/approvalmitra', function () {
-    return view('admin.approvalmitra'); 
-})->name('approvalmitra');
-
-Route::get('/listtransaksi', function () {
-    return view('admin.listtransaksi'); 
-})->name('listtransaksi');
-
-Route::get('/report', function () {
-    return view('admin.report'); 
-})->name('report');
-
-Route::get('/settingpayment', function () {
-    return view('admin.settingpayment'); 
-})->name('settingpayment');
-
-//PARTNER
-Route::get('/databooking', function () {
-    return view('partner.databooking.databooking'); 
-})->name('databooking');
-
-Route::get('/edittenda', function () {
-    return view('partner.olahtenda.edittenda'); 
-})->name('edittenda');
-
-Route::get('/formtenda', function () {
-    return view('partner.olahtenda.formtenda'); 
-})->name('formtenda');
-
-Route::get('/tambahtenda', function () {
-    return view('partner.olahtenda.tambahtenda'); 
-})->name('tambahtenda');
-
-Route::get('/dashboard', function () {
-    return view('partner.dashboard'); 
-})->name('dashboard');
-
 
 // Rute untuk menampilkan halaman login
-Route::get('/index', function () {
+Route::get('/', function () {
     return view('index'); // Pastikan 'index' sesuai dengan lokasi file index.blade.php Anda
 })->name('index');
 
+//? middleware
 // Rute untuk menampilkan halaman login
 Route::get('/login', function () {
     return view('auth.login'); // Pastikan 'auth.login' sesuai dengan lokasi file login.blade.php Anda
@@ -60,19 +23,58 @@ Route::get('/register', function () {
     return view('auth.register'); // Pastikan Anda memiliki view ini
 })->name('register');
 
-Route::get('partner', function () {
-    return view('auth.partner'); // Pastikan Anda memiliki view ini
-})->name('partner');
 
-//
-Route::get('/camp1', function () {
+//? ADMIN
+Route::get('/admin/approvalmitra', function () {
+    return view('admin.approvalmitra');
+})->name('admin.approvalmitra');
+
+Route::get('/admin/listtransaksi', function () {
+    return view('admin.listtransaksi');
+})->name('admin.listtransaksi');
+
+Route::get('/admin/report', function () {
+    return view('admin.report');
+})->name('admin.report');
+
+Route::get('/admin/settingpayment', function () {
+    return view('admin.settingpayment');
+})->name('admin.settingpayment');
+
+//? PARTNER
+Route::get('/partner/databooking', function () {
+    return view('partner.databooking.databooking');
+})->name('partner.databooking');
+
+Route::get('/partner/edittenda', function () {
+    return view('partner.olahtenda.edittenda');
+})->name('partner.edittenda');
+
+Route::get('/partner/listtenda', function () {
+    return view('partner.olahtenda.listtenda');
+})->name('partner.listtenda');
+
+Route::get('/partner/tambahtenda', function () {
+    return view('partner.olahtenda.tambahtenda');
+})->name('partner.tambahtenda');
+
+Route::get('/partner/dashboard', function () {
+    return view('partner.dashboard');
+})->name('partner.dashboard');
+
+// Route::get('/partner', function () {
+//     return view('auth.partner'); // Pastikan Anda memiliki view ini
+// })->name('partner');
+
+
+//? USER
+Route::get('/user/camp1', function () {
     return view('user.camp1'); // Pastikan Anda memiliki view ini
-})->name('camp1');
+})->name('user.camp1');
 
-//
-Route::get('/invoice', function () {
+Route::get('/user/invoice', function () {
     return view('user.invoice'); // Pastikan Anda memiliki view ini
-})->name('invoice');
+})->name('user.invoice');
 
 
 // Rute untuk menangani pengiriman formulir registrasi

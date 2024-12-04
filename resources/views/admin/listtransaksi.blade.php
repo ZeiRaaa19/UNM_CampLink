@@ -1,23 +1,27 @@
 @extends('layouts.main')
 @section('content')
-<style>
+    <style>
         body {
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
+
         .navbar {
             background-color: #333;
             padding: 1rem;
         }
+
         .navbar-brand {
             color: #D4AF37;
             font-weight: bold;
         }
+
         .navbar-brand span {
             color: #fff;
         }
+
         .btn-logout {
             background-color: #F5F5DC;
             color: #333;
@@ -25,64 +29,55 @@
             padding: 0.5rem 1rem;
             border-radius: 5px;
         }
-        .nav-tabs .nav-link {
-            color: #000;
-        }
-        .nav-tabs .nav-link.active {
-            background-color: #D4AF37;
-            color: #000;
-        }
-        .table th, .table td {
+
+        .table th,
+        .table td {
             border: 1px solid #ddd;
             text-align: center;
         }
+
         .status-booking {
             background-color: green;
             color: white;
             padding: 5px 10px;
             border-radius: 5px;
         }
+
         .status-selesai {
             background-color: blue;
             color: white;
             padding: 5px 10px;
             border-radius: 5px;
         }
+
         .footer {
             background-color: #333;
             color: #D4AF37;
             padding: 1rem;
             text-align: center;
-            margin-top: auto; /* Menjaga footer tetap di bawah */
+            margin-top: auto;
+            /* Menjaga footer tetap di bawah */
         }
+
         .footer span {
             color: #fff;
         }
+
         .btn-custom {
             background-color: #F5F5DC;
             color: #333;
             border: none;
             padding: 0.5rem 1rem;
             border-radius: 5px;
-            margin-left: 10px; /* Memberikan jarak antara tombol */
+            margin-left: 10px;
+            /* Memberikan jarak antara tombol */
         }
     </style>
 
     <div class="container mt-4 flex-grow-1">
-        <ul class="nav nav-tabs">
-            <li class="nav-item">
-                <a class="nav-link active" href="#">List Transaksi</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Report</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Aproval Mitra</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Setting Payment</a>
-            </li>
-        </ul>
+        <div class="admin-navtab">
+            @include('layouts.admin')
+        </div>
 
         <table class="table mt-3">
             <thead>
@@ -145,4 +140,4 @@
             </tbody>
         </table>
     </div>
-    @endsection
+@endsection

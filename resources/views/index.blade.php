@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-<style>
+    <style>
         body {
             font-family: 'Roboto', sans-serif;
         }
@@ -10,33 +10,46 @@
             /* Membatasi lebar input group */
         }
 
+        .input-group-text {
+            font-size: 1.5rem !important;
+        }
+
         .campcard {
             width: 100%;
+        }
+
+        .btn-search {
+            height: 100%;
+            width: auto !important;
+        }
+
+        #top-input .icon-input {
+
         }
     </style>
 
     <!-- Search Section -->
-    <section class="bg-light p-4">
+    <section class="bg-light p-4" id="top-input">
         <div class="container d-flex justify-content-center flex-wrap">
-            <div class="input-group mb-3 mx-2" style="min-width: 250px;">
+            <div class="input-group mb-3 mx-2">
                 <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                    <span class="input-group-text"><i class="icon-input fas fa-map-marker-alt"></i></span>
                 </div>
                 <input class="form-control" placeholder="Location" type="text" />
             </div>
-            <div class="input-group mb-3 mx-2" style="min-width: 250px;">
+            <div class="input-group mb-3 mx-2">
                 <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                    <span class="input-group-text"><i class="icon-input fas fa-calendar-alt"></i></span>
                 </div>
                 <input class="form-control" placeholder="Check-in" type="text" />
             </div>
-            <div class="input-group mb-3 mx-2" style="min-width: 250px;">
+            <div class="input-group mb-3 mx-2">
                 <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                    <span class="input-group-text"><i class="icon-input fas fa-calendar-alt"></i></span>
                 </div>
                 <input class="form-control" placeholder="Check-out" type="text" />
             </div>
-            <button class="btn btn-warning mx-2" style="min-width: 100px;">Search</button>
+            <button class="btn-search btn btn-warning mx-2">Search</button>
         </div>
     </section>
 
@@ -119,5 +132,4 @@
             </div>
         </section>
     </main>
-    @endsection
-
+@endsection

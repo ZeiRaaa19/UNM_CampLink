@@ -62,40 +62,34 @@
     </style>
 
     <div class="container mt-4 flex-grow-1">
-        <ul class="nav nav-tabs">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Dashboard</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="#">Pengelolaan Tenda</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Data Booking</a>
-            </li>
-        </ul>
+        <a href="{{ route('partner.listtenda') }}?tab=pengelolaantenda">
+            <button class="btn-kembali btn btn-secondary">kembali</button>
+        </a>
         <div class="mt-4">
-            <h4>
-                Tambah Data Tenda
-            </h4>
-            <form>
+            <h4 class="title-page my-3 fw-bold">Tambah Data Tenda</h4>
+            <form action="POST" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label class="form-label" for="namaTipeCamp">Nama Tipe Camp</label>
-                    <input class="form-control" id="namaTipeCamp" type="text" value="Tenda Kapasitas 4 Orang" />
+                    <input class="form-control" id="namaTipeCamp" type="text" />
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="harga">Harga</label>
-                    <input class="form-control" id="harga" type="text" value="195000" />
+                    <input class="form-control" id="harga" type="text" />
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="deskripsi">Deskripsi</label>
-                    <textarea class="form-control" id="deskripsi" rows="3">Matras 2 Buah, Toilet Outside (water heater), Termasuk Sarapan (4 pax), Bonfire, Gratis Tiket Masuk Wahana Satelit Camping</textarea>
+                    <textarea class="form-control" id="deskripsi" rows="3"></textarea>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="jumlahCamp">Jumlah Camp</label>
-                    <input class="form-control" id="jumlahCamp" type="text" value="5" />
+                    <input class="form-control" id="jumlahCamp" type="text" />
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="fotoCamp">Foto Camp</label>
+                    <input class="form-control" id="jumlahCamp" type="file" />
+                </div>
+
+                {{-- <div class="mb-3">
                     <div class="d-flex align-items-center">
                         <img alt="Foto Camp - Tenda di alam terbuka dengan latar belakang pepohonan dan langit biru"
                             class="me-3" height="100"
@@ -103,9 +97,10 @@
                             width="100" />
                         <button class="btn btn-primary" type="button">Tambah Foto</button>
                     </div>
-                </div>
+                </div> --}}
+
                 <div class="d-flex justify-content-end">
-                    <button class="btn btn-primary" type="submit">Tambah Tipe</button>
+                    <button class="btn btn-primary" type="submit">Simpan</button>
                 </div>
             </form>
         </div>

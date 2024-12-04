@@ -27,13 +27,7 @@
             border-radius: 5px;
             margin-left: 10px; /* Memberikan jarak antara tombol */
         }
-        .nav-tabs .nav-link {
-            color: #000;
-        }
-        .nav-tabs .nav-link.active {
-            background-color: #D4AF37;
-            color: #000;
-        }
+        
         .footer {
             background-color: #333;
             color: #D4AF37;
@@ -63,17 +57,9 @@
     </style>
 
     <div class="container mt-4 flex-grow-1">
-        <ul class="nav nav-tabs">
-            <li class="nav-item">
-                <a class="nav-link active" href="#">Dashboard</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Pengelolaan Tenda</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Data Booking</a>
-            </li>
-        </ul>
+        <div class="partner-tabs">
+            @include('layouts.partner')
+        </div>
         
         <div class="content">
             <h2>Dashboard</h2>

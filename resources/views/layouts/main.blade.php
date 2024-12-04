@@ -6,12 +6,15 @@
     <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous"></script>
+
     <style>
         body {
             font-family: 'Poppins', sans-serif !important;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;        
+            min-height: 100vh;
         }
 
         .navbar {
@@ -28,7 +31,7 @@
             background-color: #FDFBD4;
             color: #333;
         }
-        
+
         .nav-btn:hover {
             background-color: #878672;
             color: white;
@@ -102,13 +105,15 @@
             color: #D4AF37;
             padding: 1rem;
             text-align: center;
-            margin-top: auto; /* Memastikan footer tetap di bawah */
+            margin-top: auto;
+            /* Memastikan footer tetap di bawah */
         }
 
         .footer a {
             color: #00aaff;
         }
     </style>
+
 </head>
 
 <body>
