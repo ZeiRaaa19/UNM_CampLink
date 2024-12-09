@@ -29,8 +29,8 @@
             <form method="POST" action="{{ route('register.store') }}">
                 @csrf
                 <div class="form-group">
-                    <label for="username">Name</label>
-                    <input class="form-control" id="name" name="name" placeholder="username" type="text" required/>
+                    <label for="username">Username</label>
+                    <input class="form-control" id="username" name="username" placeholder="username" type="text" required/>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>

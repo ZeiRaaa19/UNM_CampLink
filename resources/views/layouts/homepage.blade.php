@@ -123,11 +123,16 @@
                 <img src="{{ asset('assets/img/CAMPLINK.png') }}" alt="">
             </a>
             <div class="ms-auto">
-                <button class="btn nav-btn me-2">
-                    Login
-                </button>
-                <button class="btn nav-btn">
-                    Daftar
+                <a href="{{ route('login') }}">
+                    <button class="btn nav-btn me-2">
+                        Login
+                    </button>
+                </a>
+                <a href="{{ route('register') }}">
+                    <button class="btn nav-btn">
+                        Daftar
+                    </button>
+                </a>
                 </button>
             </div>
         </div>
