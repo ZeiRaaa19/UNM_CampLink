@@ -1,15 +1,16 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+// use App\Http\Controllers\LoginController;
+use Illuminate\Support\Facades\Validator;
 
 
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -49,43 +50,80 @@ Route::get('/', function () {
     return view('index'); // Pastikan 'index' sesuai dengan lokasi file index.blade.php Anda
 })->name('index');
 
-// //? middleware
-// // Rute untuk menampilkan halaman login
-Route::get('/login', function () {
-    return view('auth.login'); // Pastikan 'auth.login' sesuai dengan lokasi file login.blade.php Anda
-})->name('login');
+//? middleware
+// Rute untuk menampilkan halaman login
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'login'])->name('view.login');
 
 // Rute untuk menampilkan halaman registrasi
-Route::get('/register', function () {
-    return view('auth.register'); // Pastikan Anda memiliki view ini
-})->name('register');
+Route::get('/register', [LoginController::class, 'showRegisterForm'])->name('register');
 
 // Rute untuk Profil
 Route::get('/profil', [UserController::class, 'profil'])->name('profil');
 
-// Rute untuk Logout
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+//? ADMIN
+Route::prefix('/admin')->middleware('auth:admin')->group(function () {
+    Route::get('/approvalmitra', function () {
+        return view('admin.approvalmitra');
+    })->name('admin.approvalmitra');
+
+    Route::get('/listtransaksi', function () {
+        return view('admin.listtransaksi');
+    })->name('admin.listtransaksi');
+
+    Route::get('/report', function () {
+        return view('admin.report');
+    })->name('admin.report');
+
+    Route::get('/settingpayment', function () {
+        return view('admin.settingpayment');
+    })->name('admin.settingpayment');
+});
 
 
-Route::get('/camp1', function () {
-    return view('user.camp1'); // Mengarah ke resources/views/user/camp1.blade.php
-})->name('user.camp1');
+//? PARTNER
 
-Route::get('/camp2', function () {
-    return view('user.camp2'); // Mengarah ke resources/views/user/camp2.blade.php
-})->name('user.camp2');
+Route::prefix('/partner')->middleware('auth:partner')->group(function () {
 
-Route::get('/camp3', function () {
-    return view('user.camp3'); // Mengarah ke resources/views/user/camp3.blade.php
-})->name('user.camp3');
+    Route::get('/databooking', function () {
+        return view('partner.databooking.databooking');
+    })->name('partner.databooking');
 
-Route::get('/camp4', function () {
-    return view('user.camp4'); // Mengarah ke resources/views/user/camp4.blade.php
-})->name('user.camp4');
+    Route::get('/edittenda', function () {
+        return view('partner.olahtenda.edittenda');
+    })->name('partner.edittenda');
 
-Route::get('/user/invoice', function () {
-    return view('user.invoice'); // Mengarah ke resources/views/user/invoice.blade.php
-})->name('user.invoice');
+    Route::get('/listtenda', function () {
+        return view('partner.olahtenda.listtenda');
+    })->name('partner.listtenda');
+
+    Route::get('/tambahtenda', function () {
+        return view('partner.olahtenda.tambahtenda');
+    })->name('partner.tambahtenda');
+
+    Route::get('/dashboard', function () {
+        return view('partner.dashboard');
+    })->name('partner.dashboard');
+
+});
+
+// Route::get('/partner', function () {
+//     return view('auth.partner'); // Pastikan Anda memiliki view ini
+// })->name('partner');
+
+
+//? USER
+
+Route::prefix('/users')->middleware('auth:user')->group(function () {
+    Route::get('/camp1', function () {
+        return view('user.camp1'); // Pastikan Anda memiliki view ini
+    })->name('user.camp1');
+
+    Route::get('/invoice', function () {
+        return view('user.invoice'); // Pastikan Anda memiliki view ini
+    })->name('user.invoice');
+
+});
 
 // //? ADMIN
 // Route::get('/admin/approvalmitra', function () {
@@ -137,28 +175,6 @@ Route::get('/user/invoice', function () {
 
 
 // Rute untuk menangani pengiriman formulir registrasi
-Route::post('/register', function (Request $request) {
-    // Validasi input
-    $validator = Validator::make($request->all(), [
-        'name' => 'required|string|max:255',
-        'email' => 'required|string|email|max:255|unique:users',
-        'password' => 'required|string|min:8|confirmed',
-    ]);
-
-    if ($validator->fails()) {
-        return redirect()->back()->withErrors($validator)->withInput();
-    }
-
-    // Buat pengguna baru
-    $user = User::create([
-        'name' => $request->name,
-        'email' => $request->email,
-        'password' => bcrypt($request->password), // Enkripsi password
-    ]);
-
-    // Login pengguna setelah registrasi
-    Auth::login($user);
-
-    // Redirect ke halaman yang diinginkan setelah registrasi
-    return redirect()->route('home'); // Ganti 'home' dengan rute yang sesuai
-})->name('register.store'); // Menambahkan nama rute
+// Route::post('/register', function (Request $request) {
+    
+// })->name('register.store'); // Menambahkan nama rute
