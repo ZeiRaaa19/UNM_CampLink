@@ -1,4 +1,4 @@
-@extends('layouts.homepage')
+@extends('layouts.main')
 @section('content')
     <style>
         body {
@@ -60,40 +60,48 @@
             <h2 class="h4 font-weight-bold mb-4">Feel at home wherever you go</h2>
             <div class="row">
                 <div class="col-md-3 col-sm-4">
+                    <a href="{{ route('user.camp1') }}">
                     <div class="card mb-4">
                         <img src="https://storage.googleapis.com/a1aa/image/krJk80B23tIzBNdMrjElFUIGVzkUodAWgNGNperObmvW5x6JA.jpg"
-                            class="card-img-top" alt="Camping Ground 1" />
+                        class="card-img-top" alt="Camping Ground 1" />
                         <div class="card-body">
                             <p class="card-text">Camping Ground 1</p>
                         </div>
-                    </div>
+                        </div>
+                    </a>
                 </div>
                 <div class="col-md-3 col-sm-4">
+                    <a href="{{ route('user.camp2') }}">
                     <div class="card mb-4">
-                        <img src="https://storage.googleapis.com/a1aa/image/fp9R94kdSnVBZ6x5enx8P48fYaD7MU2TyIJiwwKHNqCklHrnA.jpg"
-                            class="card-img-top" alt="Camping Ground 2" />
+                        <img src="https://storage.googleapis.com/a1aa/image/krJk80B23tIzBNdMrjElFUIGVzkUodAWgNGNperObmvW5x6JA.jpg"
+                        class="card-img-top" alt="Camping Ground 2" />
                         <div class="card-body">
                             <p class="card-text">Camping Ground 2</p>
                         </div>
-                    </div>
+                        </div>
+                    </a>
                 </div>
                 <div class="col-md-3 col-sm-4">
+                    <a href="{{ route('user.camp3') }}">
                     <div class="card mb-4">
-                        <img src="https://storage.googleapis.com/a1aa/image/ioJezAcisB2IPCXkeoCudANKs0QffMyWxDANvKX0clnyKPWPB.jpg"
-                            class="card-img-top" alt="Camping Ground 4" />
+                        <img src="https://storage.googleapis.com/a1aa/image/krJk80B23tIzBNdMrjElFUIGVzkUodAWgNGNperObmvW5x6JA.jpg"
+                        class="card-img-top" alt="Camping Ground 3" />
                         <div class="card-body">
                             <p class="card-text">Camping Ground 3</p>
                         </div>
-                    </div>
+                        </div>
+                    </a>
                 </div>
                 <div class="col-md-3 col-sm-4">
+                    <a href="{{ route('user.camp4') }}">
                     <div class="card mb-4">
-                        <img src="https://storage.googleapis.com/a1aa/image/NhhyBT3C0yJYMNdeoMbzGjHclVoiUkPf6WHoVUOOjQTvyj1TA.jpg"
-                            class="card-img-top" alt="Camping Ground 5" />
+                        <img src="https://storage.googleapis.com/a1aa/image/krJk80B23tIzBNdMrjElFUIGVzkUodAWgNGNperObmvW5x6JA.jpg"
+                        class="card-img-top" alt="Camping Ground 4" />
                         <div class="card-body">
                             <p class="card-text">Camping Ground 4</p>
                         </div>
-                    </div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>

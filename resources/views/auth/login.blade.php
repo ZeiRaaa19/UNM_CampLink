@@ -40,9 +40,6 @@
                     <a class="text-dark" href="{{ route('register') }}">REGISTER</a>
                     <button type="submit" class="btn btn-primary">LOGIN</button>
                 </div>
-                <div class="mt-5 d-flex justify-content-between align-items-center">
-                    <a href="{{ route('partner.dashboard') }}" class="btn btn-secondary">LOGIN PARTNER</a>
-                </div>
             </form>
         </div>
     </div>

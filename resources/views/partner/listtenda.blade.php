@@ -92,43 +92,41 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Tenda Kapasitas 4 Orang</td>
-                    <td>195.000</td>
-                    <td>Matras 2 Bed, Toilet Outdoor, View Hutan, Termasuk Sarapan, BB (1 pax), Bonfire, Welcome Drink,
-                        Tiket Masuk Wisata Sekitar Camping</td>
-                    <td>
-                        <img alt="Tenda Kapasitas 4 Orang"
-                            src="https://storage.googleapis.com/a1aa/image/QXJzmkM6P46FP9l4MPinMyIa7Wn8gcHidawpmecjTeA9Bx2TA.jpg" />
-                    </td>
-                    <td>
-                        <div class="btn-aksi d-flex justify-content-between gap-1">
-                            <a href="{{ route('partner.edittenda') }}" type="button" class="btn btn-primary"><i class="fas fa-edit"></i> Edit</a>
-                            <a href="#" type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i>
-                                Hapus</a>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Tenda Kapasitas 6 Orang</td>
-                    <td>255.000</td>
-                    <td>Matras 2 Bed, Toilet Outdoor, View Hutan, Termasuk Sarapan, BB (1 pax), Bonfire, Welcome Drink,
-                        Tiket Masuk Wisata Sekitar Camping</td>
-                    <td>
-                        <img alt="Tenda Kapasitas 6 Orang"
-                            src="https://storage.googleapis.com/a1aa/image/k0fXYcadDvRoXKqlMFJS5lUIEJobDPzB5VmocXbooAmfBx2TA.jpg" />
-                    </td>
-                    <td>
-                        <div class="btn-aksi d-flex justify-content-between gap-1">
-                            <a href="{{ route('partner.edittenda') }}" type="button" class="btn btn-primary"><i class="fas fa-edit"></i> Edit</a>
-                            <a href="#" type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i>
-                                Hapus</a>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
+        <tr>
+        <td>1</td>
+        <td>Tenda Kapasitas 4 Orang</td>
+        <td>195.000</td>
+        <td>Matras 2 Bed, Toilet Outdoor, View Hutan, Termasuk Sarapan, BB (1 pax), Bonfire, Welcome Drink,
+            Tiket Masuk Wisata Sekitar Camping</td>
+        <td>
+            <img alt="Tenda Kapasitas 4 Orang"
+                src="https://storage.googleapis.com/a1aa/image/QXJzmkM6P46FP9l4MPinMyIa7Wn8gcHidawpmecjTeA9Bx2TA.jpg" />
+        </td>
+        <td>
+            <div class="btn-aksi d-flex justify-content-between gap-1">
+                <a href="{{ route('partner.edittenda', ['id' => 1]) }}" type="button" class="btn btn-primary"><i class="fas fa-edit"></i> Edit</a>
+                <a href="#" type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Hapus</a>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Tenda Kapasitas 6 Orang</td>
+        <td>255.000</td>
+        <td>Matras 2 Bed, Toilet Outdoor, View Hutan, Termasuk Sarapan, BB (1 pax), Bonfire, Welcome Drink,
+            Tiket Masuk Wisata Sekitar Camping</td>
+        <td>
+            <img alt="Tenda Kapasitas 6 Orang"
+                src="https://storage.googleapis.com/a1aa/image/k0fXYcadDvRoXKqlMFJS5lUIEJobDPzB5VmocXbooAmfBx2TA.jpg" />
+        </td>
+        <td>
+            <div class="btn-aksi d-flex justify-content-between gap-1">
+                <a href="{{ route('partner.edittenda', ['id' => 2]) }}" type="button" class="btn btn-primary"><i class="fas fa-edit"></i> Edit</a>
+                <a href="#" type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Hapus</a>
+            </div>
+        </td>
+    </tr>
+</tbody>
         </table>
     </div>
 @endsection
