@@ -123,10 +123,10 @@
                 <img src="{{ asset('assets/img/CAMPLINK.png') }}" alt="">
             </a>
             <div class="ms-auto">
-            <a href="{{ route('profil') }}" class="btn nav-btn me-2">
+            <a href="#" class="btn nav-btn me-2">
                 Profil
             </a>
-            <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+            <form action="#" method="POST" style="display: inline;">
             @csrf <!-- Tambahkan token CSRF -->
             <button type="submit" class="btn nav-btn">
             Logout

@@ -67,7 +67,7 @@
     </a>
     <div class="mt-4">
         <h4 class="title-page my-3 fw-bold">Tambah Data Tenda</h4>
-        <form action="{{ route('partner.savetenda') }}" method="POST" enctype="multipart/form-data">
+        <form action="" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label class="form-label" for="namaTipeCamp">Nama Tipe Camp</label>

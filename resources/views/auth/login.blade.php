@@ -40,7 +40,7 @@
                 </div>
             @endif
 
-            <form method="POST" action="{{ route('') }}">
+            <form method="POST" action="{{ route('login.view') }}">
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input class="form-control" id="email" value="{{ old('email') }}" name="email" placeholder="email" type="email"
@@ -52,7 +52,7 @@
                         required />
                 </div>
                 <div class="mt-5 d-flex justify-content-between align-items-center">
-                    <a class="text-dark" href="{{ route('register') }}">REGISTER</a>
+                    <a class="text-dark" href="{{ route('register.view') }}">REGISTER</a>
                     <button type="submit" class="btn btn-primary">LOGIN</button>
                 </div>
             </form>

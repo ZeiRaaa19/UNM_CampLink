@@ -45,7 +45,7 @@
                     <input class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Confirm Password" type="password" required/>
                 </div>
                 <div class="mt-5 d-flex justify-content-between align-items-center">
-                    <a class="text-dark" href="{{ route('login') }}">LOGIN</a>
+                    <a class="text-dark" href="{{ route('login.view') }}">LOGIN</a>
                     <button type="submit" class="btn btn-primary">REGISTER</button>
                 </div>
             </form>
