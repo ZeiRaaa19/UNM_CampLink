@@ -26,7 +26,16 @@
         <!-- Right Side: Login Form -->
         <div class="d-flex flex-column" style="width: 100%;">
             <h2 class="h4 font-weight-bold mb-4 text-center">LOGIN</h2>
-            <form method="POST" action="{{ route('login') }}">
+
+            @if ($errors->any())
+                <div class="alert alert-danger" role="alert">
+                    @foreach ($errors->all() as $item)
+                        {{ $item }}
+                    @endforeach
+                </div>
+            @endif
+
+            <form method="POST" action="{{ route('login.view') }}">
                 @csrf
                 <div class="form-group">
                     <label for="username">Username</label>
@@ -37,7 +46,7 @@
                     <input class="form-control" id="password" name="password" placeholder="Password" type="password" required/>
                 </div>
                 <div class="mt-5 d-flex justify-content-between align-items-center">
-                    <a class="text-dark" href="{{ route('register') }}">REGISTER</a>
+                    <a class="text-dark" href="#">REGISTER</a>
                     <button type="submit" class="btn btn-primary">LOGIN</button>
                 </div>
             </form>
