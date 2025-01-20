@@ -23,25 +23,53 @@ class AuthController extends Controller
             'password.required' => 'Password harus diisi',
         ]);
 
-        $infoLogin = ['email' => $request->email, 'password' => $request->password];
+        $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($infoLogin)) {
-            if (Auth::user()->role == 'admin') {
-                return redirect()->route('admin.approvalmitra');
-            } else if (Auth::user()->role == 'partner') {
-                return redirect()->route('partner.databooking');
-            } else if (Auth::user()->role == 'user') {
-                return redirect()->route('user.camp1');
+        if (Auth::attempt($credentials)) {
+            // Redirect berdasarkan role pengguna
+            if (Auth::user()->role === 'admin') {
+                return redirect('/admin/listtransaksi?tab=listtransaksi');
+            } elseif (Auth::user()->role === 'partner') {
+                return redirect('/partner/dashboard?tab=dashboard');
+            } elseif (Auth::user()->role === 'user') {
+                return redirect()->route('user.index');
             }
-        } else {
-            return redirect()->back()->withErrors('email atau password salah')->withInput();
         }
+
+        return redirect()->back()->withErrors('email or password is incorrect')->withInput();
     }
 
     public function logout()
     {
         Auth::logout(); // Logout pengguna
-        return redirect()->route('login.view');
+        return redirect('/')->with('success', 'You have been logged out.'); // Redirect ke homepage
+    }
+
+
+    public function showRegistrationForm()
+    {
+        return view('auth.register'); // Ganti dengan path view register Anda
+    }
+
+    public function register(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'username' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        User::create([
+            'username' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        return redirect()->route('login')->with('success', 'Registration successful! Please log in.');
     }
 
 }

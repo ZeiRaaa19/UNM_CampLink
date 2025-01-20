@@ -2,44 +2,43 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Model;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    // protected $fillable = ['username', 'name', 'email', 'password', 'phone', 'profile_picture', 'role'];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+    protected $guarded = ['id'];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
+    protected $hidden = ['password', 'remember_token'];
+
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
     ];
+
+    //? relasi antara table (sementara)
+
+    /**
+     * Get all of the camps for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    // public function camps()
+    // {
+    //     return $this->hasMany(Camp::class);
+    // }
+
+    /**
+     * Get all of the bookings for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    // public function bookings()
+    // {
+    //     return $this->hasMany(Booking::class);
+    // }    
 }

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,5 +19,34 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        // Tambahkan pengguna super admin dengan username yang beda
+        User::create([
+            'username' => 'admin', // Ganti 'admin' menjadi 'super-admin'
+            'email' => 'admin@example.com',
+            'password' => bcrypt('admin'), // Atau ganti dengan password yang unik
+            'phone' => '123456789',
+            'avatar' => null,
+            'role' => 'admin',
+        ]);
+
+        // Tambahkan partner1 dan user1 dengan usernames yang unik
+        User::create([
+            'username' => 'partner1',
+            'email' => 'partner1@example.com',
+            'password' => bcrypt('partner'),
+            'phone' => '123456789',
+            'avatar' => null,
+            'role' => 'partner',
+        ]);
+
+        User::create([
+            'username' => 'user1',
+            'email' => 'user1@example.com',
+            'password' => bcrypt('user'),
+            'phone' => '123456789',
+            'avatar' => null,
+            'role' => 'user',
+        ]);
     }
 }
