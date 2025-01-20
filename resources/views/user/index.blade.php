@@ -71,7 +71,7 @@
                     </a>
                 </div>
                 <div class="col-md-3 col-sm-4">
-                    <a href="{{ route('user.camp2') }}">
+                    <a href="{{ route('user.camp1') }}">
                     <div class="card mb-4">
                         <img src="https://storage.googleapis.com/a1aa/image/krJk80B23tIzBNdMrjElFUIGVzkUodAWgNGNperObmvW5x6JA.jpg"
                         class="card-img-top" alt="Camping Ground 2" />
@@ -82,7 +82,7 @@
                     </a>
                 </div>
                 <div class="col-md-3 col-sm-4">
-                    <a href="{{ route('user.camp3') }}">
+                    <a href="{{ route('user.camp1') }}">
                     <div class="card mb-4">
                         <img src="https://storage.googleapis.com/a1aa/image/krJk80B23tIzBNdMrjElFUIGVzkUodAWgNGNperObmvW5x6JA.jpg"
                         class="card-img-top" alt="Camping Ground 3" />
@@ -93,7 +93,7 @@
                     </a>
                 </div>
                 <div class="col-md-3 col-sm-4">
-                    <a href="{{ route('user.camp4') }}">
+                    <a href="{{ route('user.camp1') }}">
                     <div class="card mb-4">
                         <img src="https://storage.googleapis.com/a1aa/image/krJk80B23tIzBNdMrjElFUIGVzkUodAWgNGNperObmvW5x6JA.jpg"
                         class="card-img-top" alt="Camping Ground 4" />

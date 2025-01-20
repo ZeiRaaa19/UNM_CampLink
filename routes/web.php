@@ -4,86 +4,79 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\PartnerController;
 
 
 // Rute untuk menampilkan halaman login
 Route::get('/', function () {
     return view('index'); // Pastikan 'index' sesuai dengan lokasi file index.blade.php Anda
-})->name('index');
+})->name('home');
 
 //? middleware
-// Rute untuk menampilkan halaman login
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login.view');
-Route::post('/login', [LoginController::class, 'login'])->name('login.store');
+Route::middleware(['guest'])->group(function () {
 
-// Rute untuk menampilkan halaman registrasi
-Route::get('/register', [LoginController::class, 'showRegisterForm'])->name('register.view');
-Route::post('/register', [LoginController::class, 'register'])->name('register.store');
+    // Rute untuk menampilkan halaman login
+    Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login.view');
+    Route::post('/login', [AuthController::class, 'login'])->name('login.store');
+
+    // Rute untuk menampilkan halaman registrasi
+    Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register.view');
+    Route::post('/register', [AuthController::class, 'register'])->name('register.store');
+
+});
+
+//? logout
+Route::get('/logout', [AuthController::class, 'logout'])->middleware(['auth'])->name('logout');
 
 
 //? ADMIN
-Route::prefix('/admin')->middleware('auth:admin')->group(function () {
-    Route::get('/approvalmitra', function () {
-        return view('admin.approvalmitra');
-    })->name('admin.approvalmitra');
+Route::prefix('/admin')->middleware(['auth', 'role:admin'])->group(function () {
 
-    Route::get('/listtransaksi', function () {
-        return view('admin.listtransaksi');
-    })->name('admin.listtransaksi');
+    Route::get('/listtransaksi', [AdminController::class, 'listTransaksi'])->name('admin.listtransaksi');
+    
+    Route::get('/approvalmitra', [AdminController::class, 'approvalMitra'])->name('admin.approvalmitra');
 
-    Route::get('/report', function () {
-        return view('admin.report');
-    })->name('admin.report');
+    Route::get('/report', [AdminController::class, 'report'])->name('admin.report');
 
-    Route::get('/settingpayment', function () {
-        return view('admin.settingpayment');
-    })->name('admin.settingpayment');
+    Route::get('/settingpayment', [AdminController::class, 'settingpayment'])->name('admin.settingpayment');
+
 });
 
 
 //? PARTNER
 
-Route::prefix('/partner')->group(function () {
+Route::prefix('/partner')->middleware(['auth', 'role:partner'])->group(function () {
 
-    Route::get('/databooking', function () {
-        return view('partner.databooking');
-    })->name('partner.databooking');
+    Route::get('/databooking', [PartnerController::class, 'dataBooking'])->name('partner.databooking');
 
-    Route::get('/edittenda', function () {
-        return view('partner.edittenda');
-    })->name('partner.edittenda');
+    Route::get('/edittenda', [PartnerController::class, 'editTenda'])->name('partner.edittenda');
 
-    Route::get('/listtenda', function () {
-        return view('partner.listtenda');
-    })->name('partner.listtenda');
+    Route::get('/listtenda', [PartnerController::class, 'listTenda'])->name('partner.listtenda');
 
-    Route::get('/tambahtenda', function () {
-        return view('partner.tambahtenda');
-    })->name('partner.tambahtenda');
+    Route::get('/tambahtenda', [PartnerController::class, 'tambahTenda'])->name('partner.tambahtenda');
 
-    Route::get('/dashboard', function () {
-        return view('partner.dashboard');
-    })->name('partner.dashboard');
+    Route::get('/dashboard', [PartnerController::class, 'dashboard'])->name('partner.dashboard');
 
 });
-
-// Route::get('/partner', function () {
-//     return view('auth.partner'); // Pastikan Anda memiliki view ini
-// })->name('partner');
 
 
 //? USER
 
-Route::prefix('/users')->middleware('auth:user')->group(function () {
-    Route::get('/camp1', function () {
-        return view('user.camp1'); // Pastikan Anda memiliki view ini
-    })->name('user.camp1');
+Route::prefix('/users')->middleware(['auth', 'role:user'])->group(function () {
+    Route::get('/index', [UserController::class, 'index'])->name('user.index');
 
-    Route::get('/invoice', function () {
-        return view('user.invoice'); // Pastikan Anda memiliki view ini
-    })->name('user.invoice');
+    Route::get('/camp', function () {
+        return view('user.camp');
+    })->name('user.camp');
 
+    Route::get('/invoice', [UserController::class, 'invoice'])->name('user.invoice');
+
+    Route::get('/profil', [UserController::class, 'profil'])->name('user.profil');
+
+    Route::get('/booking', [UserController::class, 'booking'])->name('user.booking');
 });
 

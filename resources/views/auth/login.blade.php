@@ -35,12 +35,13 @@
             @if ($errors->any())
                 <div class="alert alert-danger" role="alert">
                     @foreach ($errors->all() as $item)
-                        {{ $item }}
+                        <li>{{ $item }}</li>
                     @endforeach
                 </div>
             @endif
 
-            <form method="POST" action="{{ route('login.view') }}">
+            <form method="POST" action="">
+                @csrf
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input class="form-control" id="email" value="{{ old('email') }}" name="email" placeholder="email" type="email"

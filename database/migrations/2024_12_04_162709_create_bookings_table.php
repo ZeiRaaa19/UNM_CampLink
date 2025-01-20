@@ -12,8 +12,8 @@ return new class extends Migration {
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('camp_id')->constrained('camps')->onDelete('cascade')->onUpdate('cascade');
+            // $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
+            // $table->foreignId('camp_id')->constrained('camps')->onDelete('cascade')->onUpdate('cascade');
             $table->date('tanggal');
             $table->time('waktu_mulai');
             $table->time('waktu_selesai');

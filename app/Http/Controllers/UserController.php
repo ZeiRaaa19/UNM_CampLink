@@ -8,23 +8,25 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function profil()
-    {
-        $user = Auth::user(); // Ambil data pengguna yang sedang login
-        return view('user.profil', compact('user')); // Pastikan Anda memiliki view ini
-    }
-
     public function index()
     {
         // Menampilkan dashboard user
         return view('user.index'); // Ganti dengan view dashboard user Anda
     }
 
+    public function profil()
+    {
+        $user = Auth::user(); // Ambil data pengguna yang sedang login
+        return view('user.profil', compact('user')); // Pastikan Anda memiliki view ini
+    }
+
     public function invoice()
     {
         // Logika untuk menampilkan invoice pengguna
-        $invoices = Invoice::where('user_id', auth()->id())->get(); // Ambil invoice berdasarkan pengguna yang login
-        return view('user.invoice', compact('invoices')); // Ganti dengan view invoice Anda
+        // $invoices = Invoice::where('user_id', auth()->id())->get(); // Ambil invoice berdasarkan pengguna yang login
+        // return view('user.invoice', compact('invoices')); // Ganti dengan view invoice Anda
+
+        return view('user.invoice');
     }
 
     public function bookingCamp(Request $request)

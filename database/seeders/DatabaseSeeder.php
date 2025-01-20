@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
         User::create([
             'username' => 'partner1',
             'email' => 'partner1@example.com',
-            'password' => bcrypt('123456'),
+            'password' => bcrypt('partner'),
             'phone' => '123456789',
             'avatar' => null,
             'role' => 'partner',
@@ -43,7 +43,7 @@ class DatabaseSeeder extends Seeder
         User::create([
             'username' => 'user1',
             'email' => 'user1@example.com',
-            'password' => bcrypt('123456'),
+            'password' => bcrypt('user'),
             'phone' => '123456789',
             'avatar' => null,
             'role' => 'user',

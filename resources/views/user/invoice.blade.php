@@ -35,7 +35,7 @@
     <div class="content container">
         <div class="row">
             <div class="col-12">
-                <button class="btn btn-light mb-3">Kembali Pilih Tipe Camp</button>
+                <a href="{{ route('user.camp') }}" class="btn btn-light mb-3">Kembali Pilih Tipe Camp</a>
             </div>
             <div class="col-md-8">
                 <div class="order-detail">
