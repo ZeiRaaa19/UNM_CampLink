@@ -60,7 +60,7 @@
             <h2 class="h4 font-weight-bold mb-4">Feel at home wherever you go</h2>
             <div class="row">
                 <div class="col-md-3 col-sm-4">
-                    <a href="{{ route('user.camp1') }}">
+                    <a href="{{ route('user.camp') }}">
                     <div class="card mb-4">
                         <img src="https://storage.googleapis.com/a1aa/image/krJk80B23tIzBNdMrjElFUIGVzkUodAWgNGNperObmvW5x6JA.jpg"
                         class="card-img-top" alt="Camping Ground 1" />
@@ -71,7 +71,7 @@
                     </a>
                 </div>
                 <div class="col-md-3 col-sm-4">
-                    <a href="{{ route('user.camp1') }}">
+                    <a href="{{ route('user.camp') }}">
                     <div class="card mb-4">
                         <img src="https://storage.googleapis.com/a1aa/image/krJk80B23tIzBNdMrjElFUIGVzkUodAWgNGNperObmvW5x6JA.jpg"
                         class="card-img-top" alt="Camping Ground 2" />
@@ -82,7 +82,7 @@
                     </a>
                 </div>
                 <div class="col-md-3 col-sm-4">
-                    <a href="{{ route('user.camp1') }}">
+                    <a href="{{ route('user.camp') }}">
                     <div class="card mb-4">
                         <img src="https://storage.googleapis.com/a1aa/image/krJk80B23tIzBNdMrjElFUIGVzkUodAWgNGNperObmvW5x6JA.jpg"
                         class="card-img-top" alt="Camping Ground 3" />
@@ -93,7 +93,7 @@
                     </a>
                 </div>
                 <div class="col-md-3 col-sm-4">
-                    <a href="{{ route('user.camp1') }}">
+                    <a href="{{ route('user.camp') }}">
                     <div class="card mb-4">
                         <img src="https://storage.googleapis.com/a1aa/image/krJk80B23tIzBNdMrjElFUIGVzkUodAWgNGNperObmvW5x6JA.jpg"
                         class="card-img-top" alt="Camping Ground 4" />
